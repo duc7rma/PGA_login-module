@@ -5,12 +5,14 @@ import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 
 function App() {
+    let localStorageEmail = localStorage.getItem("email");
+    let localStoragePasswod = localStorage.getItem("password");
     return (
         <div className="App">
             {/* <LoginPage /> */}
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<LoginPage />} />
+                    <Route path="/" element={localStorageEmail && localStoragePasswod ? <Home /> : <LoginPage />} />
                     <Route path="/home" element={<Home />} />
                     <Route path="/contact" element={<Contact />} />
                 </Routes>
