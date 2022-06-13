@@ -56,6 +56,7 @@ function LoginForm(props: Props) {
           className="form-control"
           id="inputEmail"
           value={formValues.email}
+          placeholder="Enter your email"
           onChange={(e) => setFormValues({ ...formValues, email: e.target.value })}
         />
 
@@ -75,6 +76,7 @@ function LoginForm(props: Props) {
           className="form-control"
           id="inputPassword"
           value={formValues.password}
+          placeholder="Enter your password"
           onChange={(e) => setFormValues({ ...formValues, password: e.target.value })}
         />
 
