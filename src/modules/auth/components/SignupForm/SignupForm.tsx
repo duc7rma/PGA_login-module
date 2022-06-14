@@ -15,7 +15,7 @@ import GenderField from 'modules/components/Fields/GenderField';
 import NameField from 'modules/components/Fields/NameField';
 import RegionField from 'modules/components/Fields/RegionField';
 import StateField from 'modules/components/Fields/StateField';
-import Button from 'modules/components/Button/Button';
+import ButtonRegister from 'modules/components/Buttons/ButtonRegister/ButtonRegister';
 interface Props {
   onSignUp(values: ISignUpParams): void;
   isLoading: boolean;
@@ -27,7 +27,7 @@ function SignUpForm(props: Props) {
   const [states, setStates] = useState([]);
   const { onSignUp, isLoading, errorMessage, locations } = props;
 
-  const handleChangeRegion = async (id: number) => {
+  const handleChangeRegion = async (id: number | string) => {
     const resStateAPI = await axios.get(`${urlSignUpLocationPidAPI}+${id}`);
     setStates(resStateAPI.data.data);
   };
@@ -74,8 +74,8 @@ function SignUpForm(props: Props) {
         repeatPassword: '',
         name: '',
         gender: '',
-        region: 0,
-        state: 0,
+        region: '',
+        state: '',
       }}
       onSubmit={(values, { setSubmitting }) => {
         setSubmitting(false);
@@ -89,7 +89,7 @@ function SignUpForm(props: Props) {
         }, [values.region]);
 
         return (
-          <Form className=" form login row g-3 needs-validation">
+          <Form className=" form-signup row g-3 needs-validation">
             {!!errorMessage && (
               <div className="alert alert-danger" role="alert" style={{ width: '100%' }}>
                 {errorMessage}
@@ -114,14 +114,14 @@ function SignUpForm(props: Props) {
               renderRegion={renderRegion}
             />
             <StateField
-              error={errors.region}
+              error={errors.state}
               isTouched={touched.region}
-              value={values.region}
+              value={values.state}
               onChange={handleChange}
               renderState={renderState}
             />
 
-            <Button isLoading={isLoading} />
+            <ButtonRegister isLoading={isLoading} />
           </Form>
         );
       }}

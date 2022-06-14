@@ -1,11 +1,8 @@
-#login-form {
+.form-login {
     max-width: 560px;
     width    : 100%
 }
 
-#button-submit {
-    min-width      : 160px;
-    display        : flex;
-    align-items    : center;
-    justify-content: center
+.rememberMe {
+    margin-right: 5px;
 }

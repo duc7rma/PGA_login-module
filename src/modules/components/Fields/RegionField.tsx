@@ -26,6 +26,7 @@ function RegionField(props: Props) {
         name="region"
         value={value}
         onChange={onChange}
+
         // onChange={(e) => handleChangeRegion(e.target.value)}
       >
         {renderRegion()}
