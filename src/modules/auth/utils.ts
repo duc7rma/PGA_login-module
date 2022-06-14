@@ -1,5 +1,6 @@
 import { ILoginParams, ILoginValidation, ISignUpParams, ISignUpValidation } from '../../models/auth';
 import { validEmailRegex } from '../../utils';
+import * as Yup from 'yup';
 
 const validateEmail = (email: string) => {
   if (!email) {
@@ -37,7 +38,7 @@ const validateRepeatPassword = (password: string, repeatPassword: string) => {
   return ''
 }
 
-const validateField = (field: string, value: string) => {
+const validateField = (field: string, value: string | number) => {
   if(value) return ''
   let fieldRequire = ''
   switch(field) {
@@ -89,3 +90,27 @@ export const validSignUp = (values: ISignUpValidation) => {
   return !values.email && !values.password && !values.repeatPassword && !values.name
     && !values.gender && !values.region && !values.state
 };
+
+export const LoginSchema = Yup.object().shape({
+  email: Yup.string().email().required('Email required'),
+  password: Yup.string()
+    .required('No password provided.')
+    .min(6, 'Password is too short - should be 6 chars minimum.')
+    .matches(/(?=.*[0-9])/, 'Password must contain a number.'),
+});
+
+export const SignupSchema = Yup.object().shape({
+  email: Yup.string().email().required('Email required'),
+  password: Yup.string()
+    .required('No password provided.')
+    .min(6, 'Password is too short - should be 6 chars minimum.')
+    .matches(/(?=.*[0-9])/, 'Password must contain a number.'),
+  repeatPassword: Yup.string()
+    .required('Please repeat your password')
+    .oneOf([Yup.ref('password'), null], 'Passwords must match'),
+  name: Yup.string().required('Please enter your full name'),
+  gender: Yup.string().required('Please chose your gender'),
+  region: Yup.number().required('Please chose your region').min(1, 'Please chose your region'),
+  state: Yup.number().required('Please chose your state').min(1, 'Please chose your city'),
+});
+

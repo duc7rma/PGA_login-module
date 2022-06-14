@@ -15,8 +15,8 @@ export interface ISignUpParams {
   repeatPassword: string;
   name: string;
   gender: string;
-  region: string;
-  state: string;
+  region: string | number;
+  state: string | number ;
 }
 
 export interface ILocationParams {
