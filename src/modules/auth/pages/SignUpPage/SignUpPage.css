@@ -10,3 +10,9 @@
     max-width: 560px;
     width    : 100%;
 }
+
+div img {
+    max-width    : 250px;
+    margin-top   : 300px;
+    margin-bottom: 30px;
+}

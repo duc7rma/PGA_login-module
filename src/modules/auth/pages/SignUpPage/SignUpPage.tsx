@@ -54,7 +54,7 @@ function SigUpPage() {
 
   return (
     <div className="container form-login">
-      <img src={logo} alt="" style={{ maxWidth: '250px', marginTop: '300px', marginBottom: '30px' }} />
+      <img src={logo} alt="" />
       <SignUpForm onSignUp={onSignUp} isLoading={isLoading} errorMessage={errorMessage} locations={locations} />
     </div>
   );
