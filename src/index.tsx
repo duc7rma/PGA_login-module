@@ -10,6 +10,7 @@ import ConnectedIntlProvider from './modules/intl/component/ConnectedIntlProvide
 import { setLocale } from './modules/intl/redux/intlReducer';
 import configureStore, { history } from './redux/configureStore';
 import reportWebVitals from './reportWebVitals';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 smoothscroll.polyfill();
 

@@ -1,0 +1,49 @@
+.container {
+    display              : flex;
+    align-items          : center;
+    justify-content      : center;
+    margin               : 0;
+    /* border            : 1px solid silver; */
+    height               : 50vh;
+    margin-bottom        : 30px;
+    height               : 100%;
+}
+
+
+.button {
+    margin-bottom: 30px;
+    margin-top   : 20px;
+}
+
+.btn-confirm {
+    border-radius   : 5px;
+    border          : 2px solid blue;
+    background-color: yellow;
+    margin-right    : 100px;
+    width           : 75px;
+}
+
+.btn-reset {
+    border-radius   : 5px;
+    border          : 2px solid blue;
+    background-color: yellowgreen;
+    margin-right    : 100px;
+    width           : 75px;
+}
+
+.btn-prev-page {
+    border-radius   : 5px;
+    border          : 2px solid blue;
+    background-color: yellowgreen;
+    margin-right    : 100px;
+    width           : 75px;
+}
+
+.btn-next-page {
+    border-radius   : 5px;
+    border          : 2px solid blue;
+    background-color: yellow;
+    margin-right    : 100px;
+    width           : 75px;
+
+}
